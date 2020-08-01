@@ -1,6 +1,5 @@
 # BBHTv2
 A single script for all the  tools you need for bug bounty.
-Shoutout to NahamSec
 
 Bug Bounty Hunting Tools is a script to install the most popular tools used while looking for vulnerabilities for a bug bounty program.
 
@@ -17,5 +16,5 @@ you can modify it as you like.
 # Installing
 - git clone https://github.com/unethicalnoob/BBHTv2 
 - cd BBHTv2
-- chmod +x install.sh
-- ./install.sh
+- chmod +x bbhtv2.sh
+- ./bbhtv2.sh
