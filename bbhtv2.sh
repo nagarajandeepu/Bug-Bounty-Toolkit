@@ -63,9 +63,9 @@ echo "${GREEN} [+] Installing Golang ${RESET}"
 if [ ! -f /usr/bin/go ];then
     cd ~
     sudo apt-get install golang
-    echo 'export GOROOT=/usr/local/go' > ~/.bash_profile
-	echo 'export GOPATH=$HOME/go'	> ~/.bash_profile			
-	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' > ~/.bash_profile
+    echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
+	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
+	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
     source ~/.bash_profile 
 else 
     echo "${BLUE} Golang is already installed${RESET}"
