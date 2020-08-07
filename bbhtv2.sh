@@ -506,7 +506,7 @@ echo "${GREEN}#### Other Tools ####${RESET}"
 
 echo "${BLUE} installing SSRFMap ${RESET}"
 git clone https://github.com/swisskyrepo/SSRFmap ~/tools/SSRFMap
-cd ~/tools/SSRFmap/
+cd ~/tools/SSRFMap/
 sudo pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
