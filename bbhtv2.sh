@@ -28,24 +28,30 @@ echo ""
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-sudo apt-get install -y apt-transport-https
-sudo apt-get install -y libcurl4-openssl-dev
-sudo apt-get install -y libssl-dev
-sudo apt-get install -y jq
-sudo apt-get install -y ruby-full
-sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
-sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
-sudo apt-get install -y python-setuptools
-sudo apt-get install -y libldns-dev
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python-dnspython
-sudo apt-get install -y git
-sudo apt-get install -y xargs
-sudo apt-get install -y npm
-sudo apt-get install -y nmap phantomjs 
-sudo apt-get install -y gem
-sudo apt-get install -y perl 
-sudo apt-get install -y parallel
+sudo add-apt-repository -y ppa:apt-fast/stable < /dev/null
+sudo echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
+sudo echo debconf apt-fast/dlflag boolean true | debconf-set-selections
+sudo echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
+sudo apt install -y apt-fast
+
+sudo apt-fast install -y apt-transport-https
+sudo apt-fast install -y libcurl4-openssl-dev
+sudo apt-fast install -y libssl-dev
+sudo apt-fast install -y jq
+sudo apt-fast install -y ruby-full
+sudo apt-fast install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+sudo apt-fast install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt-fast install -y python-setuptools
+sudo apt-fast install -y libldns-dev
+sudo apt-fast install -y python3-pip
+sudo apt-fast install -y python-dnspython
+sudo apt-fast install -y git
+sudo apt-fast install -y xargs
+sudo apt-fast install -y npm
+sudo apt-fast install -y nmap phantomjs 
+sudo apt-fast install -y gem
+sudo apt-fast install -y perl 
+sudo apt-fast install -y parallel
 pip3 install jsbeautifier
 echo ""
 echo ""
@@ -62,7 +68,7 @@ sar 1 1 >/dev/null
 echo "${GREEN} [+] Installing Golang ${RESET}"
 if [ ! -f /usr/bin/go ];then
     cd ~
-    sudo apt-get install golang
+    sudo apt-fast install golang
     echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
 	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
 	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
@@ -94,7 +100,7 @@ echo ""
 
 #install nmap
 echo "${BLUE} installing nmap${RESET}"
-sudo apt-get install -y nmap
+sudo apt-fast install -y nmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -106,7 +112,7 @@ echo ""
 
 #install sqlmap
 echo "${BLUE} installing sqlmap${RESET}"
-sudo apt-get install sqlmap
+sudo apt-fast install sqlmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -140,7 +146,7 @@ echo ""
 echo "${GREEN}#### Installing fuzzing tools ####${RESET}"
 #install gobuster
 echo "${BLUE} installing gobuster${RESET}"
-sudo apt-get install gobuster
+sudo apt-fast install gobuster
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -156,7 +162,7 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing wfuzz${RESET}"
-sudo apt-get install wfuzz
+sudo apt-fast install wfuzz
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -746,7 +752,7 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing amass${RESET}"
-sudo apt-get install amass
+sudo apt-fast install amass
 echo "${BLUE} done${RESET}"
 echo ""
 
