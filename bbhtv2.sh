@@ -69,8 +69,11 @@ echo "${GREEN} [+] Installing Golang ${RESET}"
 if [ ! -f /usr/bin/go ];then
     cd ~
     wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
-	export PATH=$PATH:/usr/local/go/bin && export GOROOT=/usr/local/go && export GOPATH=$HOME/go
-    echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
+	export GOROOT=$HOME/.go
+	export PATH=$GOROOT/bin:$PATH
+	export GOPATH=$HOME/go
+    echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
+	
 	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
 	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
     source ~/.bash_profile 
