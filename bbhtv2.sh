@@ -5,6 +5,9 @@ GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
 RESET=$(tput sgr0)
 
+AMASS_VERSION=3.8.2
+
+
 echo "${RED} ######################################################### ${RESET}"
 echo "${RED} #                 TOOLS FOR BUG BOUNTY                  # ${RESET}"
 echo "${RED} ######################################################### ${RESET}"
@@ -46,7 +49,6 @@ sudo apt-fast install -y libldns-dev
 sudo apt-fast install -y python3-pip
 sudo apt-fast install -y python-dnspython
 sudo apt-fast install -y git
-sudo apt-fast install -y xargs
 sudo apt-fast install -y npm
 sudo apt-fast install -y nmap phantomjs 
 sudo apt-fast install -y gem
@@ -68,8 +70,12 @@ sar 1 1 >/dev/null
 echo "${GREEN} [+] Installing Golang ${RESET}"
 if [ ! -f /usr/bin/go ];then
     cd ~
-    sudo apt-fast install golang
-    echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
+    wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
+	export GOROOT=$HOME/.go
+	export PATH=$GOROOT/bin:$PATH
+	export GOPATH=$HOME/go
+    echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
+	
 	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
 	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
     source ~/.bash_profile 
@@ -146,7 +152,7 @@ echo ""
 echo "${GREEN}#### Installing fuzzing tools ####${RESET}"
 #install gobuster
 echo "${BLUE} installing gobuster${RESET}"
-sudo apt-fast install gobuster
+sudo go get -u github.com/OJ/gobuster
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -752,9 +758,12 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing amass${RESET}"
-sudo apt-fast install amass
+cd ~ && echo -e "Downloading amass version ${AMASS_VERSION} ..." && wget -q https://github.com/OWASP/Amass/releases/download/v${AMASS_VERSION}/amass_linux_amd64.zip && unzip amass_linux_amd64.zip && mv amass_linux_amd64/amass /usr/bin/
+
+cd ~ && rm -rf amass_linux_amd64* amass_linux_amd64.zip*
 echo "${BLUE} done${RESET}"
 echo ""
+unzip -q temp.zip && 
 
 
 echo "${BLUE} installing impacket${RESET}"
