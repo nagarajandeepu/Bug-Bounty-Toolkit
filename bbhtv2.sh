@@ -639,7 +639,7 @@ echo  "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing nuclei${RESET}"
-go get -u github.com/projectdiscovery/nuclei/cmd/nuclei
+go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 echo "${BLUE} done${RESET}"
 echo ""
 
