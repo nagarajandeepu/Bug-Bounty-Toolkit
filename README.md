@@ -3,8 +3,7 @@ A single script for all the  tools you need for bug bounty. Thanks to the origin
 
 Bug Bounty Hunting Tools is a script to install the most popular tools
 
-# Added a new version 
-# Categorized the list of tools
+# Added a new version | # Categorized the list of tools
 
 Script for aliases/shell functions: [https://github.com/unethicalnoob/aliases](https://github.com/unethicalnoob/aliases)
 
