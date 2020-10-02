@@ -5,7 +5,7 @@ GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
 RESET=$(tput sgr0)
 
-AMASS_VERSION=3.8.2
+AMASS_VERSION=3.10.4
 
 
 echo "${RED} ######################################################### ${RESET}"
