@@ -7,7 +7,7 @@ Bug Bounty Hunting Tools is a script to install the most popular tools
 
 - [List of tools](#Categorized-the-list-of-tools)
 - [Installation](#installation)
-
+- [Docker Pull and Run Instructions](#instructions)
 
 
 
@@ -43,7 +43,9 @@ Script for aliases/shell functions: [https://github.com/unethicalnoob/aliases](h
  ./bbhtv2.1.sh
  ```
 
+## Instructions
 
-
-
-
+``` 
+docker pull unethicalnoob/bbht:v2
+docker run -it  unethicalnoob/bbht:v2 /bin/bash
+ ```
