@@ -4,8 +4,8 @@ A single script for the most popular tools you need for bug bounty. This script 
 ### FYI  
 **This script is intended to setup a container from scratch. As containers take up a huge amount of memory, this script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.**
 
-***Shout-out to original creator of bbhtv1 >> https://github.com/nahamsec  
-Shout-out to creator of bbhtv2 >> https://github.com/unethicalnoob***
+*Shout-out to original creator of bbhtv1 >> https://github.com/nahamsec  
+Shout-out to creator of bbhtv2 >> https://github.com/unethicalnoob*
 
 ## Table of Contents 
 
