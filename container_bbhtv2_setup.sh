@@ -38,34 +38,33 @@ sleep 3s
 
  apt-get -y update
  apt-get -y upgrade
- apt-get install -y apt-fast
 
- add-apt-repository -y ppa:apt-fast/stable < /dev/null
- echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
- echo debconf apt-fast/dlflag boolean true | debconf-set-selections
- echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
+ add-apt-repository -y ppa:apt-get/stable < /dev/null
+ echo debconf apt-get/maxdownloads string 16 | debconf-set-selections
+ echo debconf apt-get/dlflag boolean true | debconf-set-selections
+ echo debconf apt-get/aptmanager string apt-get | debconf-set-selections
 
- apt-fast install -y python3
- apt-fast install -y golang
- apt-fast install -y apt-transport-https
- apt-fast install -y libcurl4-openssl-dev
- apt-fast install -y libssl-dev
- apt-fast install -y jq
- apt-fast install -y ruby-full
- apt-fast install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
- apt-fast install -y build-essential libssl-dev libffi-dev python-dev
- apt-fast install -y python-setuptools
- apt-fast install -y libldns-dev
- apt-fast install -y python3-pip
- apt-fast install -y python-dnspython
- apt-fast install -y git
- apt-fast install -y npm
- apt-fast install -y nmap phantomjs 
- apt-fast install -y gem
- apt-fast install -y perl 
- apt-fast install -y parallel
-apt-fast install -y curl
-apt-fast install -y nano
+ apt-get install -y python3
+ apt-get install -y golang
+ apt-get install -y apt-transport-https
+ apt-get install -y libcurl4-openssl-dev
+ apt-get install -y libssl-dev
+ apt-get install -y jq
+ apt-get install -y ruby-full
+ apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+ apt-get install -y build-essential libssl-dev libffi-dev python-dev
+ apt-get install -y python-setuptools
+ apt-get install -y libldns-dev
+ apt-get install -y python3-pip
+ apt-get install -y python-dnspython
+ apt-get install -y git
+ apt-get install -y npm
+ apt-get install -y nmap phantomjs 
+ apt-get install -y gem
+ apt-get install -y perl 
+ apt-get install -y parallel
+apt-get install -y curl
+apt-get install -y nano
 
 pip3 install jsbeautifier
 echo ""
@@ -119,7 +118,7 @@ echo ""
 
 #install nmap
 echo "${BLUE} installing nmap${RESET}"
- apt-fast install -y nmap
+ apt-get install -y nmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -131,7 +130,7 @@ echo ""
 
 #install sqlmap
 echo "${BLUE} installing sqlmap${RESET}"
- apt-fast install -y sqlmap
+ apt-get install -y sqlmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -181,7 +180,7 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing wfuzz${RESET}"
- apt-fast install -y wfuzz
+ apt-get install -y wfuzz
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
