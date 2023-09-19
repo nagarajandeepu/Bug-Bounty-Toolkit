@@ -3,57 +3,76 @@
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
-AMASS_VERSION=3.8.2
+AMASS_VERSION=4.2.0
 
 
 echo "${RED} ######################################################### ${RESET}"
-echo "${RED} #                 TOOLS FOR BUG BOUNTY                  # ${RESET}"
+echo "${RED} #       Container Setup from scratch for Bug-Bounty     # ${RESET}"
 echo "${RED} ######################################################### ${RESET}"
 logo(){
 echo "${BLUE}
-                ___ ___ _  _ _____     ___
-               | _ ) _ ) || |_   _|_ _|_  )
-               | _ \ _ \ __ | | | \ V // /
-               |___/___/_||_| |_|  \_//___| ${RESET}"
+
+    ____  ____  __  ________                 ______            __        _                    _____      __            
+   / __ )/ __ )/ / / /_  __/____            / ____/___  ____  / /_____ _(_)___  ___  _____   / ___/___  / /___  ______ 
+  / __  / __  / /_/ / / / / ___/  ______   / /   / __ \/ __ \/ __/ __ `/ / __ \/ _ \/ ___/   \__ \/ _ \/ __/ / / / __ \
+ / /_/ / /_/ / __  / / / (__  )  /_____/  / /___/ /_/ / / / / /_/ /_/ / / / / /  __/ /      ___/ /  __/ /_/ /_/ / /_/ /
+/_____/_____/_/ /_/ /_/ /____/            \____/\____/_/ /_/\__/\__,_/_/_/ /_/\___/_/      /____/\___/\__/\__,_/ .___/ 
+                                                                                                              /_/      
+
+${RESET}"
 }
 logo
 echo ""
 echo "${GREEN} Tools created by the best people in the InfoSec Community ${RESET}"
 echo "${GREEN}                   Thanks to everyone!                     ${RESET}"
+echo "${BLUE}                       Happy Hacking!                       ${RESET}"
 echo ""
-
-
-echo "${GREEN} [+] Updating and installing dependencies ${RESET}"
 echo ""
+echo "${GREEN} ^.^ For any suggestions, DM > https://twitter.com/aptx378 ^.^ ${RESET}"
+echo ""
+echo ""
+sleep 2s
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
 
-sudo add-apt-repository -y ppa:apt-fast/stable < /dev/null
-sudo echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
-sudo echo debconf apt-fast/dlflag boolean true | debconf-set-selections
-sudo echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
-sudo apt install -y apt-fast
+echo "${RED} ~~ Updating and installing dependencies to set-up containers from scratch for bug bounty ~~ ${RESET}"
+echo ""
+echo ""
+tput bold;echo "${GREEN}To optimize the space taken by the container and for easier enablement of bounty hunting, this script will be modified to include/remove tools ${RESET}";tput sgr0
+echo ""
+echo ""
+sleep 3s
 
-sudo apt-fast install -y apt-transport-https
-sudo apt-fast install -y libcurl4-openssl-dev
-sudo apt-fast install -y libssl-dev
-sudo apt-fast install -y jq
-sudo apt-fast install -y ruby-full
-sudo apt-fast install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
-sudo apt-fast install -y build-essential libssl-dev libffi-dev python-dev
-sudo apt-fast install -y python-setuptools
-sudo apt-fast install -y libldns-dev
-sudo apt-fast install -y python3-pip
-sudo apt-fast install -y python-dnspython
-sudo apt-fast install -y git
-sudo apt-fast install -y npm
-sudo apt-fast install -y nmap phantomjs 
-sudo apt-fast install -y gem
-sudo apt-fast install -y perl 
-sudo apt-fast install -y parallel
+ apt-get -y update
+ apt-get -y upgrade
+
+ add-apt-repository -y ppa:apt-fast/stable < /dev/null
+ echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
+ echo debconf apt-fast/dlflag boolean true | debconf-set-selections
+ echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
+ apt install -y apt-fast
+
+ apt-fast install -y apt-transport-https
+ apt-fast install -y libcurl4-openssl-dev
+ apt-fast install -y libssl-dev
+ apt-fast install -y jq
+ apt-fast install -y ruby-full
+ apt-fast install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+ apt-fast install -y build-essential libssl-dev libffi-dev python-dev
+ apt-fast install -y python-setuptools
+ apt-fast install -y libldns-dev
+ apt-fast install -y python3-pip
+ apt-fast install -y python-dnspython
+ apt-fast install -y git
+ apt-fast install -y npm
+ apt-fast install -y nmap phantomjs 
+ apt-fast install -y gem
+ apt-fast install -y perl 
+ apt-fast install -y parallel
+apt-fast install -y curl
+apt-fast install -y nano
 pip3 install jsbeautifier
 echo ""
 echo ""
@@ -100,13 +119,13 @@ echo "${GREEN} #### Basic Tools #### ${RESET}"
 
 #install altdns
 echo "${BLUE} installing altdns ${RESET}"
-sudo pip3 install py-altdns
+ pip3 install py-altdns
 echo "${BLUE} done${RESET}"
 echo ""
 
 #install nmap
 echo "${BLUE} installing nmap${RESET}"
-sudo apt-fast install -y nmap
+ apt-fast install -y nmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -118,7 +137,7 @@ echo ""
 
 #install sqlmap
 echo "${BLUE} installing sqlmap${RESET}"
-sudo apt-fast install -y sqlmap
+ apt-fast install -y sqlmap
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -126,7 +145,7 @@ echo ""
 echo "${BLUE} downloading knockpy${RESET}"
 git clone https://github.com/guelfoweb/knock.git ~/tools/knockpy
 cd ~/tools/knockpy
-sudo python setup.py install
+ python setup.py install
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -138,7 +157,7 @@ echo ""
 echo "${BLUE} downloading asnlookup${RESET}"
 git clone https://github.com/yassineaboukir/asnlookup.git ~/tools/asnlookup
 cd ~/tools/asnlookup
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -152,7 +171,7 @@ echo ""
 echo "${GREEN}#### Installing fuzzing tools ####${RESET}"
 #install gobuster
 echo "${BLUE} installing gobuster${RESET}"
-sudo go get -u github.com/OJ/gobuster
+ go get -u github.com/OJ/gobuster
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -168,7 +187,7 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing wfuzz${RESET}"
-sudo apt-fast install -y wfuzz
+ apt-fast install -y wfuzz
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -185,7 +204,7 @@ echo ""
 echo "${BLUE} subdomainizer ${RESET}"
 git clone https://github.com/nsonaniya2010/SubDomainizer.git ~/tools/SubDomainizer
 cd ~/tools/SubDomainizer && chmod +x SubDomainizer.py
-sudo pip3 install -r requirements.txt 
+ pip3 install -r requirements.txt 
 echo "${BLUE} done ${RESET}"
 echo ""
 
@@ -219,7 +238,7 @@ echo ""
 echo "${BLUE} installing Sublister ${RESET}"
 git clone https://github.com/aboul3la/Sublist3r.git ~/tools/Sublist3r
 cd ~/tools/Sublist3r
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done ${RESET}"
 echo ""
 
@@ -229,7 +248,7 @@ echo "${BLUE} done ${RESET}"
 echo ""
 
 echo "${BLUE} installing spyse ${RESET}"
-sudo pip3 install spyse.py
+ pip3 install spyse.py
 echo "${BLUE} done ${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -239,13 +258,13 @@ echo "${GREEN} #### Installing CORS Tools #### ${RESET}"
 
 echo "${BLUE} installing corsy ${RESET}"
 git clone https://github.com/s0md3v/Corsy.git ~/tools/corsy
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done ${RESET}"
 echo ""
 
 echo "${BLUE} installing cors-scanner ${RESET}"
 git clone https://github.com/chenjj/CORScanner.git ~/tools/corscanner
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done ${RESET}"
 echo ""
 
@@ -262,24 +281,24 @@ echo "${GREEN} #### Installing XSS Tools#### ${RESET}"
 echo "${BLUE} installing dalfox${RESET}"
 git clone https://github.com/hahwul/dalfox ~/tools/dalfox
 cd ~/tools/dalfox/ && go build dalfox.go
-sudo cp dalfox /usr/bin/
+ cp dalfox /usr/bin/
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing XSStrike${RESET}"
 git clone https://github.com/s0md3v/XSStrike.git ~/tools/XSStrike 
 cd ~/tools/XSStrike
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
 #Xspear for XSS
 echo "${BLUE} installing XSpear${RESET}"
-sudo gem install XSpear
-sudo gem install colorize
-sudo gem install selenium-webdriver
-sudo gem install terminal-table
-sudo gem install progress_bar
+ gem install XSpear
+ gem install colorize
+ gem install selenium-webdriver
+ gem install terminal-table
+ gem install progress_bar
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -287,7 +306,7 @@ echo ""
 echo "${BLUE} downloading traxss${RESET}"
 git clone https://github.com/M4cs/traxss.git ~/tools/traxss
 cd ~/tools/traxss
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -297,7 +316,7 @@ sar 1 1 >/dev/null
 echo "${GREEN} #### Installing Cloud workflow Tools #### ${RESET}"
 
 echo "${BLUE} Instaliing awscli${RESET}"
-sudo pip3 install awscli --upgrade --user
+ pip3 install awscli --upgrade --user
 echo "${BLUE} Don't forget to set up AWS credentials!${RESET}"
 echo "${BLUE} done${RESET}"
 echo ""
@@ -320,7 +339,7 @@ echo ""
 echo "${BLUE} DumpsterDiver${RESET}"
 git clone https://github.com/securing/DumpsterDiver.git ~/tools/DumpsterDiver
 cd ~/tools/DumpsterDiver && chmod +x DumpsterDiver.py
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -328,7 +347,7 @@ echo ""
 echo "${BLUE} installing S3Scanner${RESET}"
 git clone https://github.com/sa7mon/S3Scanner.git ~/tools/S3Scanner 
 cd ~/tools/S3Scanner
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -336,7 +355,7 @@ echo ""
 echo "${BLUE} installing Cloudflair${RESET}"
 git clone https://github.com/christophetd/CloudFlair.git ~/tools/CloudFlair
 cd ~/tools/CloudFlair && chmod +x cloudflair.py
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -358,7 +377,7 @@ echo ""
 echo "${BLUE} installing GCPBucketBrute${RESET}"
 git clone https://github.com/RhinoSecurityLabs/GCPBucketBrute.git ~/tools/GCPBucketBrute
 cd ~/tools/GCPBucketBrute
-sudo python3 -m pip install -r requirements.txt
+ python3 -m pip install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -369,14 +388,14 @@ echo "${GREEN} #### Installing CMS Tools #### ${RESET}"
 echo "${BLUE} installing CMSmap${RESET}"
 git clone https://github.com/Dionach/CMSmap.git ~/tools/CMS/CMSmap
 cd ~/tools/CMS/CMSmap
-sudo pip3 install .
+ pip3 install .
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing wig${RESET}"
 git clone https://github.com/jekyc/wig.git ~/tools/CMS/wig
 cd ~/tools/wig
-sudo python3 setup.py install
+ python3 setup.py install
 echo "${BLUE} done${RESET}"
 echo "" 
 
@@ -384,7 +403,7 @@ echo ""
 echo "${BLUE} installing CMSeek${RESET}"
 git clone https://github.com/Tuhinshubhra/CMSeeK.git ~/tools/CMS/CMSeek
 cd ~/tools/CMS/CMSeek
-sudo python3 -m pip install -r requirements.txt
+ python3 -m pip install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -396,13 +415,13 @@ echo ""
 
 #install wpscan
 echo "${BLUE} installing wpscan${RESET}"
-sudo gem install wpscan
+ gem install wpscan
 echo "${BLUE} done${RESET}"
 echo ""
 
 #install droopescan
 echo "${BLUE} installing droopescan${RESET}"
-sudo pip3 install droopescan
+ pip3 install droopescan
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -410,7 +429,7 @@ echo ""
 echo "${BLUE} installing drupwn${RESET}"
 git clone https://github.com/immunIT/drupwn.git ~/tools/CMS/drupwn
 cd ~/tools/CMS/drupwn
-sudo python3 setup.py install
+ python3 setup.py install
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -432,14 +451,14 @@ echo ""
 echo "${BLUE} gitgraber${RESET}"
 git clone https://github.com/hisxo/gitGraber.git ~/tools/GIT/gitGraber
 cd ~/tools/GIT/gitGraber && chmod +x gitGraber.py
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE}  GitHound${RESET}"
 git clone https://github.com/tillson/git-hound.git ~/tools/GIT/git-hound
 cd ~/tools/GIT/git-hound
-sudo go build main.go && mv main githound
+ go build main.go && mv main githound
 echo "${BLUE} Create a ./config.yml or ~/.githound/config.yml${RESET}"
 echo "${BLUE} done${RESET}"
 echo ""
@@ -447,7 +466,7 @@ echo ""
 echo "${BLUE} gitsearch${RESET}"
 git clone https://github.com/gwen001/github-search.git ~/tools/GIT/github-search
 cd ~/tools/GIT/github-search 
-sudo pip3 install -r  requirements.txt
+ pip3 install -r  requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -492,19 +511,19 @@ cd ~/tools/Frameworks/BlackWidow
 echo "${BLUE} done${RESET}"
 echo ""
 
-echo "${BLUE} installing Sudomy${RESET}"
-git clone --recursive https://github.com/screetsec/Sudomy.git ~/tools/Frameworks/Sudomy
-cd ~/tools/Frameworks/Sudomy
-sudo pip3 install -r requirements.txt
-sudo npm i -g wappalyzer
+echo "${BLUE} installing my${RESET}"
+git clone --recursive https://github.com/screetsec/my.git ~/tools/Frameworks/my
+cd ~/tools/Frameworks/my
+ pip3 install -r requirements.txt
+ npm i -g wappalyzer
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing findomain${RESET}"
 cd ~/tools/Frameworks
 wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux
-sudo chmod +x findomain-linux
-sudo cp findomain-linux /usr/bin/findomain
+ chmod +x findomain-linux
+ cp findomain-linux /usr/bin/findomain
 echo "${BLUE} Add your keys in the config file"
 echo "${BLUE} done${RESET}"
 echo ""
@@ -515,12 +534,12 @@ echo "${GREEN}#### Other Tools ####${RESET}"
 echo "${BLUE} installing SSRFMap ${RESET}"
 git clone https://github.com/swisskyrepo/SSRFmap ~/tools/SSRFMap
 cd ~/tools/SSRFMap/
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing XSRFProbe${RESET}"
-sudo pip3 install xsrfprobe
+ pip3 install xsrfprobe
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -529,7 +548,7 @@ echo ""
 echo "${BLUE} installing JSParser${RESET}"
 git clone https://github.com/nahamsec/JSParser.git ~/tools/JSParser
 cd ~/tools/JSParser
-sudo python3 setup.py install
+ python3 setup.py install
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -540,19 +559,19 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing broken-link-checker${RESET}"
-sudo npm install broken-link-checker -g
+ npm install broken-link-checker -g
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing pwncat${RESET}"
-sudo pip3 install pwncat
+ pip3 install pwncat
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing Photon${RESET}"
 git clone https://github.com/s0md3v/Photon.git ~/tools/Photon
 cd ~/tools/Photon
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -560,14 +579,14 @@ echo "${BLUE} installing hakrawler${RESET}"
 git clone https://github.com/hakluke/hakrawler.git ~/tools/hakrawler
 cd ~/tools/hakrawler
 go build main.go && mv main hakrawler
-sudo mv hakrawler /usr/bin/
+ mv hakrawler /usr/bin/
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing waff00f${RESET}"
 git clone https://github.com/EnableSecurity/wafw00f.git ~/tools/waff00f
 cd ~/tools/wafw00f
-sudo python3 setup.py install
+ python3 setup.py install
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -575,14 +594,14 @@ echo ""
 echo "${BLUE} Paramspider${RESET}"
 git clone https://github.com/devanshbatham/ParamSpider ~/tools/ParamSpider
 cd ~/tools/ParamSpider
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} jexboss${RESET}"
 git clone https://github.com/joaomatosf/jexboss.git ~/tools/jexboss
 cd ~/tools/jexboss
-sudo pip3 install -r requires.txt
+ pip3 install -r requires.txt
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -593,7 +612,7 @@ echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} installing webtech${RESET}"
-sudo pip3 install webtech
+ pip3 install webtech
 echo "${BLUE} done${RESET}"
 echo ""
 
@@ -607,15 +626,15 @@ echo ""
 echo "${BLUE} LinkFinder${RESET}"
 git clone https://github.com/GerbenJavado/LinkFinder.git ~/tools/LinkFinder
 cd ~/tools/LinkFinder
-sudo pip3 install -r requirements.txt
-sudo python3 setup.py install
+ pip3 install -r requirements.txt
+ python3 setup.py install
 echo "${BLUE} done${RESET}"
 echo ""
 
 echo "${BLUE} SecretFinder${RESET}"
 git clone https://github.com/m4ll0k/SecretFinder.git ~/tools/SecretFinder
 cd ~/tools/SecretFinder && chmod +x secretfinder
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -765,8 +784,8 @@ unzip -q temp.zip &&
 echo "${BLUE} installing impacket${RESET}"
 git clone https://github.com/SecureAuthCorp/impacket.git ~/tools/impacket
 cd ~/tools/impacket
-sudo pip3 install -r requirements.txt
-sudo pip3 install .
+ pip3 install -r requirements.txt
+ pip3 install .
 echo "${BLUE} done${RESET}"
 echo ""
 sar 1 1 >/dev/null
@@ -775,4 +794,13 @@ echo "${GREEN} use the command 'source ~/.bash_profile' for the shell functions 
 echo ""
 echo "${GREEN}  ALL THE TOOLS ARE MADE BY THE BEST PEOPLE OF THE INFOSEC COMMUNITY ${RESET}"
 echo ""
-echo "${GREEN}                I AM JUST A SCRIPT-KIDDIE ;)                         ${RESET}"
+echo "${GREEN}                
+ __ __   ____    __  __  _      ____     ___  _____ ____   ___   ____   _____ ____  ____   _      __ __ 
+|  |  | /    |  /  ]|  |/ ]    |    \   /  _]/ ___/|    \ /   \ |    \ / ___/|    ||    \ | |    |  |  |
+|  |  ||  o  | /  / |  ' /     |  D  ) /  [_(   \_ |  o  )     ||  _  (   \_  |  | |  o  )| |    |  |  |
+|  _  ||     |/  /  |    \     |    / |    _]\__  ||   _/|  O  ||  |  |\__  | |  | |     || |___ |  ~  |
+|  |  ||  _  /   \_ |     \    |    \ |   [_ /  \ ||  |  |     ||  |  |/  \ | |  | |  O  ||     ||___, |
+|  |  ||  |  \     ||  .  |    |  .  \|     |\    ||  |  |     ||  |  |\    | |  | |     ||     ||     |
+|__|__||__|__|\____||__|\_|    |__|\_||_____| \___||__|   \___/ |__|__| \___||____||_____||_____||____/ 
+
+${RESET}"
