@@ -33,6 +33,11 @@ Shout-out to creator of bbhtv2 >> https://github.com/unethicalnoob*
 ---
 
 ## Installation
+```
+If not already installed:
+> apt-get install git
+> apt-get update
+```
 
 ```
 git clone https://github.com/nagarajandeepu/BBHT-Container-Setup.git
