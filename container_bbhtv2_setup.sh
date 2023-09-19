@@ -38,13 +38,15 @@ sleep 3s
 
  apt-get -y update
  apt-get -y upgrade
+ apt-get install -y apt-fast
 
  add-apt-repository -y ppa:apt-fast/stable < /dev/null
  echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
  echo debconf apt-fast/dlflag boolean true | debconf-set-selections
  echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
- apt install -y apt-fast
 
+ apt-fast install -y python3
+ apt-fast install -y golang
  apt-fast install -y apt-transport-https
  apt-fast install -y libcurl4-openssl-dev
  apt-fast install -y libssl-dev
@@ -64,6 +66,7 @@ sleep 3s
  apt-fast install -y parallel
 apt-fast install -y curl
 apt-fast install -y nano
+
 pip3 install jsbeautifier
 echo ""
 echo ""
@@ -797,4 +800,3 @@ echo "${BLUE}=  ====  ==    =  ====    ======  ====  =  ======  ==    ==  =  =  
 echo "${BLUE}=  ====  =  =  =  =  =  =  =====  ====  =  =  =  =  =  ====  =  =  =  =  =  =  =  =  =  =  =  =${RESET}";
 echo "${BLUE}=  ====  ==    ==   ==  =  =====  ====  ==   ===   ==  =====   ==  =  ==   ==  =    ==  ==   ==${RESET}";
 echo "${BLUE}===============================================================================================${RESET}";
-
