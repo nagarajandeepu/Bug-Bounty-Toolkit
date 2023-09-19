@@ -1,13 +1,11 @@
 # BBHT for Containers - Setup from scratch
-A single script for all the tools you need for bug bounty. This script can setup a container from scratch with the required tools to get started on your journey towards Bounty Hunting
+A single script for the most popular tools you need for bug bounty. This script can setup a container from scratch with the required tools to get started on your journey towards Bounty Hunting
 
 ### FYI  
-This script is intended to setup a container from scratch. As containers take up a huge amount of memory, this script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.
+**This script is intended to setup a container from scratch. As containers take up a huge amount of memory, this script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.**
 
 ***Shout-out to original creator of bbhtv1 >> https://github.com/nahamsec  
 Shout-out to creator of bbhtv2 >> https://github.com/unethicalnoob***
-
-Bug Bounty Hunting Tools is a script to install the most popular tools
 
 ## Table of Contents 
 
