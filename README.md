@@ -1,4 +1,4 @@
-# BBHT for Containers - Setup from scratch
+# BBHT for Docker Containers - Setup from scratch
 A single script for the most popular tools you need for bug bounty. This script can setup a container from scratch with the required tools to get started on your journey towards Bounty Hunting
 
 ### FYI  
