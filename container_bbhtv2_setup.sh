@@ -22,7 +22,7 @@ echo "${GREEN}                   Thanks to everyone!                     ${RESET
 echo "${BLUE}                       Happy Hacking!                       ${RESET}"
 echo ""
 echo ""
-echo "${GREEN} ^.^ For any suggestions, DM > https://twitter.com/aptx378 ^.^ ${RESET}"
+echo "${GREEN} ^.^ For any suggestions, DM > https://twitter.com/skr4tmagick ^.^ ${RESET}"
 echo ""
 echo ""
 sleep 2s
