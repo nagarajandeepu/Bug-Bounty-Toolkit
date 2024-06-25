@@ -38,4 +38,4 @@ If not already installed:
 > apt-get update
 ```
 
-# Give a chmod +x for your desired shellscript, run it, be patient and you're good to go
+### Give a chmod +x for your desired shellscript, run it, be patient and you're good to go
