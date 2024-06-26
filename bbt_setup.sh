@@ -7,17 +7,8 @@ CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
 AMASS_VERSION=4.2.0
-
-echo "${BLUE} ____  ____  __ __ ______          __  ___  ____  ______  ____ ____ ____    ___ ____        _____  ___ ______ __ __ ____  ${RESET}";
-echo "${BLUE}|    \|    \|  |  |      |        /  ]/   \|    \|      |/    |    |    \  /  _|    \      / ___/ /  _|      |  |  |    \ ${RESET}";
-echo "${BLUE}|  o  |  o  |  |  |      |_____  /  /|     |  _  |      |  o  ||  ||  _  |/  [_|  D  )    (   \_ /  [_|      |  |  |  o  )${RESET}";
-echo "${BLUE}|     |     |  _  |_|  |_|     |/  / |  O  |  |  |_|  |_|     ||  ||  |  |    _|    /      \__  |    _|_|  |_|  |  |   _/ ${RESET}";
-echo "${BLUE}|  O  |  O  |  |  | |  | |_____/   \_|     |  |  | |  | |  _  ||  ||  |  |   [_|    \      /  \ |   [_  |  | |  :  |  |   ${RESET}";
-echo "${BLUE}|     |     |  |  | |  |       \     |     |  |  | |  | |  |  ||  ||  |  |     |  .  \     \    |     | |  | |     |  |   ${RESET}";
-echo "${BLUE}|_____|_____|__|__| |__|        \____|\___/|__|__| |__| |__|__|____|__|__|_____|__|\_|      \___|_____| |__|  \__,_|__|   ${RESET}";
-echo "                                                                                                                          	       ";
 echo ""
-echo "${GREEN} Tools created by the best people in the InfoSec Community ${RESET}"
+echo "${GREEN} Tools created for the best people in the InfoSec Community ${RESET}"
 echo "${GREEN}                   Thanks to everyone!                     ${RESET}"
 echo "${BLUE}                       Happy Hacking!                       ${RESET}"
 echo ""
@@ -45,7 +36,6 @@ sleep 3s
  echo debconf apt-get/aptmanager string apt-get | debconf-set-selections
 
  sudo apt-get install -y python3
- sudo apt-get install -y golang
  sudo apt-get install -y apt-transport-https
  sudo apt-get install -y libcurl4-openssl-dev
  sudo apt-get install -y libssl-dev
