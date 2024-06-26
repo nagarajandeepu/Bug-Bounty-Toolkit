@@ -4,8 +4,6 @@ A single script for the most popular tools you need for bug bounty. This script 
 ### FYI  
 **This script is intended to setup from scratch. This script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.**
 
-*Shout-out to original creator of bbhtv1 >> https://github.com/nahamsec*
-
 ## Table of Contents 
 
 - [List of tools](#Categorized-the-list-of-tools)
