@@ -45,7 +45,6 @@ sleep 3s
  echo debconf apt-get/aptmanager string apt-get | debconf-set-selections
 
  apt-get install -y python3
- apt-get install -y golang
  apt-get install -y apt-transport-https
  apt-get install -y libcurl4-openssl-dev
  apt-get install -y libssl-dev
