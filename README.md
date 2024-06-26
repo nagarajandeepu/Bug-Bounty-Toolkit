@@ -2,7 +2,7 @@
 A single script for the most popular tools you need for bug bounty. This script can setup a container from scratch with the required tools to get started on your journey towards Bounty Hunting
 
 ### FYI  
-**This script is intended to setup a container from scratch. As containers take up a huge amount of memory, this script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.**
+**This script is intended to setup from scratch. This script may be modified to include or exclude tools, but will ensure the inclusion of all the required tools.**
 
 *Shout-out to original creator of bbhtv1 >> https://github.com/nahamsec*
 
