@@ -19,9 +19,11 @@ if [ ! -f /usr/bin/go ]; then
     echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
     echo 'export GOPATH=$HOME/go' >> ~/.bash_profile
     echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile #IMPORTANT
 
     # Source ~/.bash_profile to apply changes
     source ~/.bash_profile
+    source ~/.profile #IMPORTANT
 
     echo "Go installation complete."
 else
