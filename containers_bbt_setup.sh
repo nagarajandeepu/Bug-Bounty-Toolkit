@@ -79,17 +79,30 @@ echo ""
 sar 1 1 >/dev/null 
 
 echo "${GREEN} [+] Installing Golang ${RESET}"
-if [ ! -f /usr/bin/go ];then
+if [ ! -f /usr/bin/go ]; then
+    echo "Go is not installed. Installing..."
+
+    # Change directory to home
     cd ~
-    wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
-	export GOROOT=$HOME/.go
-	export PATH=$GOROOT/bin:$PATH
-	export GOPATH=$HOME/go
-    echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
-	
-	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
-	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
-    source ~/.bash_profile 
+
+    # Download and execute the installation script
+	apt-get update
+    wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+	tar -xvf go1.21.0.linux-amd64.tar.gz
+	mv go /usr/local
+    go version
+
+    # Set up Go environment variables
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+
+    # Source ~/.bash_profile to apply changes
+    source ~/.bash_profile
+    source ~/.profile #IMPORTANT
+
+    echo "${GREEN} "Go installation complete.${RESET}"
 else 
     echo "${BLUE} Golang is already installed${RESET}"
 fi
