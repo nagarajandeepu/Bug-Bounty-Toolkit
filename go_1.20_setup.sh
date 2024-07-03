@@ -8,18 +8,17 @@ if [ ! -f /usr/bin/go ]; then
     cd ~
 
     # Download and execute the installation script
-    wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
+    sudo apt-get update
+    wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+    sudo tar -xvf go1.21.0.linux-amd64.tar.gz
+    sudo mv go /usr/local
+    go version
 
     # Set up Go environment variables
-    export GOROOT=$HOME/.go
-    export PATH=$GOROOT/bin:$PATH
+    export GOROOT=/usr/local/go
     export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-    # Append environment variable exports to ~/.bash_profile
-    echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
-    echo 'export GOPATH=$HOME/go' >> ~/.bash_profile
-    echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile #IMPORTANT
 
     # Source ~/.bash_profile to apply changes
     source ~/.bash_profile
